@@ -30,10 +30,11 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="HOST" elementType="Argument">
               <stringProp name="Argument.name">HOST</stringProp>
-              <stringProp name="Argument.value">test.skygoweb.bskyb.com</stringProp>
+              <stringProp name="Argument.value">10.65.84.93</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
+          <stringProp name="TestPlan.comments">test.skygoweb.bskyb.com</stringProp>
         </Arguments>
         <hashTree/>
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
