@@ -43,6 +43,7 @@
                 <performancetest.loopCount>5</performancetest.loopCount>
             </properties>
         </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>
