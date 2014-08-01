@@ -62,7 +62,7 @@
                         <webservice.connectTimeout>${performancetest.connectTimeout}</webservice.connectTimeout>
                         <webservice.responseTimeout>${performancetest.responseTimeout}</webservice.responseTimeout>
                         <threadCount>${performancetest.threadCount}</threadCount>
-                        <loopCount>${performancetest.threadCount}</loopCount>
+                        <loopCount>${performancetest.loopCount}</loopCount>
                     </propertiesUser>
                     <propertiesJMeter>
                         <jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
