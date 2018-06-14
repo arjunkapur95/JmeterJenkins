@@ -89,7 +89,11 @@
                         <artifactId>jmeter-plugins</artifactId>
                         <version>1.0.0</version>
                         <exclusions>
-                         
+                            <!--
+                                Unfortunately some transitive dependencies cannot be found on mvncentral
+                                and we have to explicitly exclude them.
+                                For a complete list, see https://github.com/mlex/jmeter-maven-example/
+                            -->
                             <exclusion>
                                 <groupId>kg.apc</groupId>
                                 <artifactId>perfmon</artifactId>
@@ -102,7 +106,11 @@
                                 <groupId>org.apache.hbase</groupId>
                                 <artifactId>hbase</artifactId>
                             </exclusion>
-                          
+                            
+                            <!--
+                                These dependencies would override direct JMeter dependencies,
+                                which results in version conflicts (e.g. NoSuchMethodError on jmeter startup
+                            -->
                             <exclusion>
                                 <groupId>org.apache.jmeter</groupId>
                                 <artifactId>jorphan</artifactId>
@@ -131,7 +139,27 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
             <plugin>
+                <groupId>com.lazerycode.jmeter</groupId>
+                <artifactId>jmeter-analysis-maven-plugin</artifactId>
+                <version>1.0.4</version>
+                <configuration>
+                    <source>${project.build.directory}/jmeter/results/google_home.jtl</source>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>create-html-report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>analyze</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- To start an embedded jetty with a simple webapp for demonstration purposes -->
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>8.1.14.v20131031</version>
